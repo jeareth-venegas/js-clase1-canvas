@@ -2,56 +2,56 @@ const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 //círculo 
-let xPosicionCirculo = 250;
-let yPosicionCirculo = 100;
-let xVelocidadCirculo = 5;
-let yVelocidadCirculo = 7;
+let xPositionCircle = 250;
+let yPositionCircle = 100;
+let xSpeedCircle = 5;
+let ySpeedCircle = 7;
 let radio = 100;
 
 //cuadrado azul
-let xPosicionSquare = 250;
-let yPosicionSquare = 100;
-let xVelocidadSquare = 4;
-let yVelocidadSquare = 6;
+let xPositionSquare = 250;
+let yPositionSquare = 100;
+let xSpeedSquare = 4;
+let ySpeedSquare = 6;
 let squa = 150;
 
 //animación
 function createDraw(){ 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    if(xPosicionCirculo > canvas.width - radio || xPosicionCirculo < radio){
-        xVelocidadCirculo =- xVelocidadCirculo;
+    if(xPositionCircle > canvas.width - radio || xPositionCircle < radio){
+        xSpeedCircle =- xSpeedCircle;
     }
 
-    if(yPosicionCirculo > canvas.height - radio || yPosicionCirculo < radio){
-        yVelocidadCirculo =- yVelocidadCirculo;
+    if(yPositionCircle > canvas.height - radio || yPositionCircle < radio){
+        ySpeedCircle =- ySpeedCircle;
     }
     
-    xPosicionCirculo += xVelocidadCirculo;
-    yPosicionCirculo += yVelocidadCirculo;
+    xPositionCircle += xSpeedCircle;
+    yPositionCircle += ySpeedCircle;
 
     //círculo
     ctx.beginPath();
-    ctx.arc(xPosicionCirculo, yPosicionCirculo, radio, 0, 2 * Math.PI);
-    ctx.fillStyle = 'red';
+    ctx.arc(xPositionCircle, yPositionCircle, radio, 0, 2 * Math.PI);
+    ctx.fillStyle = 'purple';
     ctx.fill();
     ctx.stroke();
     ctx.closePath();
 
     //cuadrado
-
-    ctx.fillStyle="blue";
+    
+    ctx.fillStyle = "blue";
     ctx.fillRect(75, 75, 150, 150);
 
 
-    if(xPosicionSquare + xVelocidadSquare > canvas.width - squa || xPosicionSquare + xVelocidadSquare < squa ) {
-        xVelocidadSquare =- xVelocidadSquare;
+    if(xPositionSquare > canvas.width - squa || xPositionSquare < squa ) {
+        xSpeedSquare =- xSpeedSquare;
     }
-    if(yPosicionSquare + yVelocidadSquare > canvas.height - squa || yPosicionSquare + yVelocidadSquare < canvas.height - squa){
-        yVelocidadSquare =- yVelocidadSquare;;
+    if(yPositionSquare > canvas.height - squa || yPositionSquare < squa){
+        ySpeedSquare =- ySpeedSquare;;
     }
-    xPosicionSquare += xVelocidadSquare;
-    yPosicionSquare += yVelocidadSquare;
+    xPositionSquare += xSpeedSquare;
+    yPositionSquare += ySpeedSquare;
 
     window.requestAnimationFrame(createDraw);
 }
