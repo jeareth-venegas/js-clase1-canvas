@@ -26,7 +26,7 @@ function createDraw(){
     if(yPositionCircle > canvas.height - radio || yPositionCircle < radio){
         ySpeedCircle =- ySpeedCircle;
     }
-    
+
     xPositionCircle += xSpeedCircle;
     yPositionCircle += ySpeedCircle;
 
@@ -39,20 +39,17 @@ function createDraw(){
     ctx.closePath();
 
     //cuadrado
-    
     ctx.fillStyle = "blue";
     ctx.fillRect(75, 75, 150, 150);
 
-
-    if(xPositionSquare > canvas.width - squa || xPositionSquare < squa ) {
+    if(xPositionSquare > canvas.width - 0 || xPositionSquare < squa || xPositionSquare < 0) {
         xSpeedSquare =- xSpeedSquare;
     }
-    if(yPositionSquare > canvas.height - squa || yPositionSquare < squa){
+    if(yPositionSquare > canvas.height - 0 || yPositionSquare < squa || yPositionSquare < 0){
         ySpeedSquare =- ySpeedSquare;;
     }
     xPositionSquare += xSpeedSquare;
     yPositionSquare += ySpeedSquare;
-
     window.requestAnimationFrame(createDraw);
 }
 /*createDraw();
